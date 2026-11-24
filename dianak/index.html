@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diana K · Portafolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: dulce, luminosa y segura; femenina sin perder lo profesional.
+   IDEA: una papelería de boutique: tarjetas de invitación, sobres y flores prensadas.
+   PICTURE: retrato en marco de arco rodeado de flores, con etiquetas flotantes de experiencia.
+   COLOUR and TYPE: blanco rosado, rosa empolvado #e07a9a, durazno, lavanda y toques dorados; Great Vibes para la firma, Playfair Display, Quicksand.
+   LAYOUT: menú flotante, hero con arco, cifras, perfil, experiencia, trabajo filtrable, formación, herramientas, contacto. */
+:root{color-scheme:light dark;
+--bg:light-dark(#fff8f9,#21171c);--ink:light-dark(#5a3d4a,#f8e8ef);--soft:light-dark(#9a7887,#cfb3c0);
+--rose:light-dark(#e07a9a,#f3a3bd);--rose2:light-dark(#f8d3de,#4b2c3a);--blush:light-dark(#fdebf0,#2b1d24);
+--peach:light-dark(#ffe6da,#3d2a24);--lav:light-dark(#efe6fb,#2f2639);--gold:light-dark(#d4a865,#e2c08b);
+--card:light-dark(#ffffff,#2a1f25);--line:light-dark(#f6dce4,#3e2c35)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Quicksand,system-ui,sans-serif;font-weight:500;overflow-x:clip}
+a{color:inherit}
+.band{padding:clamp(56px,8vw,120px) max(5vw,16px);position:relative}
+.wrap{max-width:1180px;margin:0 auto;position:relative}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:500;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.4vw,50px)}
+h2 em{font-style:italic;color:var(--rose)}
+.kick{display:inline-flex;align-items:center;gap:8px;color:var(--rose);font-weight:700;font-size:14px;margin:0 0 14px}
+.kick::before{content:"";width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 24 24'%3E%3Cg fill='%23e07a9a'%3E%3Cellipse cy='-6' rx='3.4' ry='6'/%3E%3Cellipse cy='-6' rx='3.4' ry='6' transform='rotate(72)'/%3E%3Cellipse cy='-6' rx='3.4' ry='6' transform='rotate(144)'/%3E%3Cellipse cy='-6' rx='3.4' ry='6' transform='rotate(216)'/%3E%3Cellipse cy='-6' rx='3.4' ry='6' transform='rotate(288)'/%3E%3C/g%3E%3Ccircle r='2.6' fill='%23d4a865'/%3E%3C/svg%3E") center/contain no-repeat}
+.lead{color:var(--soft);font-size:17px;max-width:60ch}
+.center{text-align:center}.center .lead{margin-inline:auto}
+/* nav */
+nav{position:sticky;top:12px;z-index:30;display:flex;justify-content:center;padding:0 12px}
+.nav{display:flex;align-items:center;gap:6px;padding:8px 8px 8px 22px;border-radius:999px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);box-shadow:0 10px 30px color-mix(in srgb,var(--rose) 16%,transparent);border:1px solid var(--line);flex-wrap:wrap;max-width:100%}
+.sig{font-family:"Great Vibes",cursive;font-size:30px;line-height:1;color:var(--rose);text-decoration:none;margin-right:10px}
+.links{display:flex;gap:2px}
+.links a{text-decoration:none;font-size:14px;font-weight:600;padding:10px 14px;border-radius:999px;color:var(--soft)}
+.links a:hover,.links a.on{color:var(--rose);background:var(--blush)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 26px;border-radius:999px;border:0;background:linear-gradient(135deg,#ec95b0,var(--rose));color:#fff;font:700 15px Quicksand,sans-serif;text-decoration:none;cursor:pointer;box-shadow:0 10px 24px color-mix(in srgb,var(--rose) 35%,transparent);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px color-mix(in srgb,var(--rose) 45%,transparent)}
+.btn.ghost{background:var(--card);color:var(--rose);box-shadow:inset 0 0 0 1.5px var(--rose2)}
+.btn.sm{min-height:44px;padding:0 20px;font-size:14px}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+/* hero */
+#inicio{background:radial-gradient(60% 70% at 90% 10%,var(--rose2),transparent 60%),radial-gradient(50% 60% at 0% 100%,var(--peach),transparent 60%),radial-gradient(40% 50% at 55% 60%,var(--lav),transparent 70%);margin-top:-70px;padding-top:150px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hello{font-size:20px;color:var(--soft);margin:0}
+.hero h1{font-family:"Great Vibes",cursive;font-weight:400;font-size:clamp(80px,12vw,150px);line-height:.95;color:var(--rose);margin:4px 0 8px}
+.role{font-family:"Playfair Display",serif;font-size:clamp(22px,2.6vw,30px);line-height:1.25;margin:0 0 18px}
+.role em{color:var(--rose)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.tag{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--soft)}
+.sample{font-size:13px;color:var(--soft);margin-top:20px;opacity:.85}
+.arch{position:relative;width:100%;max-width:470px;justify-self:center;aspect-ratio:47/56}
+.arch svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.float{position:absolute;background:var(--card);border-radius:20px;padding:12px 16px;box-shadow:0 14px 34px color-mix(in srgb,var(--rose) 22%,transparent);font-size:13px;color:var(--soft);display:flex;align-items:center;gap:10px;animation:bob 6s ease-in-out infinite}
+.float b{display:block;font-family:"Playfair Display",serif;font-size:24px;color:var(--rose);line-height:1}
+.float .dot{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none}
+.f1{left:-6%;top:58%}.f2{right:-4%;top:14%;animation-delay:-3s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:-30px}
+.stat{border-radius:28px;padding:26px 22px;text-align:center}
+.stat:nth-child(1){background:var(--blush)}.stat:nth-child(2){background:var(--peach)}.stat:nth-child(3){background:var(--lav)}.stat:nth-child(4){background:var(--rose2)}
+.stat b{display:block;font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(38px,4.6vw,54px);line-height:1.05;white-space:nowrap;color:var(--rose)}
+.stat span{font-size:14px;color:var(--soft)}
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start;margin-top:40px}
+.quote{background:var(--card);border-radius:36px;padding:clamp(28px,4vw,44px);box-shadow:0 20px 50px color-mix(in srgb,var(--rose) 12%,transparent);position:relative}
+.quote p{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.45;margin:0}
+.quote .by{font-family:"Great Vibes",cursive;font-size:36px;color:var(--rose);margin-top:16px;display:block}
+.quote::before{content:"“";position:absolute;top:-30px;left:26px;font:96px/1 "Playfair Display",serif;color:var(--rose2)}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px}
+.skill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+.skill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rose)}
+.edu{display:grid;gap:12px}
+.edu div{display:flex;gap:14px;align-items:center;background:var(--card);border-radius:22px;padding:14px 18px;border:1px solid var(--line)}
+.edu i{width:42px;height:42px;border-radius:14px;background:var(--lav);display:grid;place-items:center;flex:none;font-style:normal;color:var(--rose)}
+.edu b{display:block;font-weight:700}.edu span{font-size:14px;color:var(--soft)}
+/* experience */
+.soft{background:linear-gradient(180deg,var(--blush),var(--bg))}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:36px 0 26px}
+.tab{all:unset;cursor:pointer;box-sizing:border-box;min-height:46px;padding:10px 22px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:700;font-size:14px;color:var(--soft);text-align:center}
+.tab[aria-selected=true]{background:var(--rose);color:#fff;border-color:var(--rose);box-shadow:0 10px 24px color-mix(in srgb,var(--rose) 30%,transparent)}
+.job{max-width:820px;margin:0 auto;background:var(--card);border-radius:36px;padding:clamp(26px,4vw,48px);box-shadow:0 24px 60px color-mix(in srgb,var(--rose) 14%,transparent);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,34px)}
+.badge{width:84px;height:84px;border-radius:28px;background:linear-gradient(135deg,var(--rose2),var(--peach));display:grid;place-items:center;font-family:"Great Vibes",cursive;font-size:44px;color:var(--rose)}
+.job h3{font-size:clamp(26px,3vw,34px)}
+.job .co{color:var(--rose);font-weight:700;margin:4px 0 12px}
+.job ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.job li{display:flex;gap:10px}.job li::before{content:"✿";color:var(--rose);flex:none}
+.fade{animation:fd .5s ease}@keyframes fd{from{opacity:0;transform:translateY(10px)}}
+/* achievements */
+.bar{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:30px 0 32px}
+.chip{all:unset;cursor:pointer;box-sizing:border-box;min-height:44px;padding:10px 20px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;font-weight:700;color:var(--soft)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.case{all:unset;cursor:pointer;box-sizing:border-box;background:var(--card);border-radius:32px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 36px color-mix(in srgb,var(--rose) 10%,transparent);transition:transform .3s,box-shadow .3s}
+.case:hover{transform:translateY(-6px);box-shadow:0 24px 50px color-mix(in srgb,var(--rose) 22%,transparent)}
+.top{height:150px;position:relative;display:grid;place-items:center}
+.top svg{width:70px;height:70px}
+.case .in{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.case small{color:var(--rose);font-weight:700;font-size:13px}
+.case h3{font-size:24px}
+.case p{margin:0;color:var(--soft);font-size:15px}
+.case .res{margin-top:auto;padding-top:8px;font-weight:700;color:var(--ink)}
+.case .res::after{content:" →";color:var(--rose)}
+dialog{border:0;border-radius:36px;padding:0;max-width:620px;width:calc(100% - 28px);background:var(--card);color:var(--ink);box-shadow:0 40px 90px rgb(90 61 74/.3)}
+dialog::backdrop{background:rgb(90 61 74/.35);backdrop-filter:blur(4px)}
+.dtop{height:120px;display:grid;place-items:center;position:relative}
+.dtop svg{width:60px;height:60px}
+.dlg{padding:clamp(22px,4vw,38px)}
+.dlg h3{font-size:clamp(28px,4vw,38px);margin:4px 0 16px}
+.step{display:grid;gap:4px;padding:14px 18px;border-radius:20px;background:var(--blush);margin-bottom:10px}
+.step span{font-size:13px;font-weight:700;color:var(--rose)}
+.x{all:unset;cursor:pointer;position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--card);font-size:22px;color:var(--rose)}
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:44px;position:relative}
+.plan::before{content:"";position:absolute;top:46px;left:16%;right:16%;border-top:2px dashed var(--rose2)}
+.pcard{background:var(--card);border-radius:32px;padding:28px 26px;text-align:center;position:relative;box-shadow:0 14px 36px color-mix(in srgb,var(--rose) 10%,transparent)}
+.num{width:64px;height:64px;margin:-60px auto 16px;border-radius:50%;display:grid;place-items:center;font-family:"Playfair Display",serif;font-size:22px;color:#fff;background:linear-gradient(135deg,#ec95b0,var(--rose));box-shadow:0 0 0 8px var(--bg)}
+.pcard small{display:block;color:var(--rose);font-weight:700;margin-bottom:6px}
+.pcard h3{font-size:24px;margin-bottom:10px}
+.pcard p{margin:0;color:var(--soft);font-size:15px}
+/* contact */
+.env.one{display:block;text-align:center;max-width:760px;margin:0 auto}.env.one .lead{margin-inline:auto}.env.one .info{text-align:left;max-width:520px;margin-inline:auto}
+.env{background:linear-gradient(135deg,var(--rose2),var(--peach) 60%,var(--lav));border-radius:44px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(26px,5vw,60px)}
+.info{display:grid;gap:12px;margin-top:26px}
+.info div{display:flex;align-items:center;gap:12px;background:color-mix(in srgb,var(--card) 75%,transparent);border-radius:18px;padding:10px 14px;flex-wrap:wrap}
+.info span{font-size:13px;color:var(--soft);width:70px}
+.info a{font-weight:700;text-decoration:none;overflow-wrap:anywhere}
+.copy{all:unset;cursor:pointer;margin-left:auto;font-size:13px;font-weight:700;color:var(--rose);padding:8px 12px;border-radius:12px;background:var(--card)}
+form{background:var(--card);border-radius:32px;padding:clamp(22px,3vw,32px);display:grid;gap:14px;box-shadow:0 20px 50px color-mix(in srgb,var(--rose) 16%,transparent)}
+label{font-size:14px;font-weight:700;display:grid;gap:6px}
+input,textarea,select{font:500 16px Quicksand,sans-serif;padding:12px 16px;border-radius:18px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);min-height:46px;width:100%}
+input:focus,textarea:focus,select:focus{border-color:var(--rose);outline:none}
+textarea{min-height:110px;resize:vertical}
+.ok{display:none;background:var(--blush);border-radius:20px;padding:16px;font-size:15px}
+footer{text-align:center;padding:40px 16px 50px;color:var(--soft);font-size:14px}
+footer .sig{font-size:44px;display:block;margin:0 0 6px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}.links{display:none}}
+@media(max-width:720px){.hero,.about,.env{grid-template-columns:minmax(0,1fr)}.plan{grid-template-columns:minmax(0,1fr);gap:48px}.plan::before{display:none}.grid{grid-template-columns:minmax(0,1fr)}.job{grid-template-columns:minmax(0,1fr)}.arch{max-width:360px}.f1{left:0}.f2{right:0}#inicio{padding-top:120px}}
+
+/* formación y herramientas */
+.study{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:40px}
+.box{background:var(--card);border-radius:32px;padding:clamp(22px,3vw,34px);box-shadow:0 14px 36px color-mix(in srgb,var(--rose) 10%,transparent)}
+.box h3{font-size:26px;margin-bottom:16px}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.tl li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 14px;align-items:start}
+.tl i{grid-row:span 2;width:12px;height:12px;border-radius:50%;background:var(--rose);margin-top:7px;box-shadow:0 0 0 5px var(--rose2)}
+.tl b{font-weight:700}.tl span{font-size:14px;color:var(--soft)}
+.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px}
+.tool{border-radius:28px;padding:24px}
+.tool:nth-child(1){background:var(--blush)}.tool:nth-child(2){background:var(--peach)}.tool:nth-child(3){background:var(--lav)}.tool:nth-child(4){background:var(--rose2)}
+.tool h3{font-size:22px;margin-bottom:12px}
+.tool .skills{margin:0}
+.tool .skill,.detail .skill{background:color-mix(in srgb,var(--card) 80%,transparent);border:0;font-size:13px;padding:6px 12px}
+.detail{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.info b{font-weight:700}
+.lks{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.lk{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;background:var(--card);color:var(--rose);font-weight:700;font-size:14px;text-decoration:none;border:1.5px solid var(--rose2);transition:background .2s}
+.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.flag{position:absolute;left:12px;bottom:12px;background:var(--card);color:var(--rose);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;box-shadow:0 6px 16px rgb(0 0 0/.12)}
+dialog.wide{max-width:900px}
+.sws{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.sw{display:inline-flex;align-items:center;gap:8px;font-size:14px;white-space:nowrap}.sw i{width:26px;height:26px;border-radius:50%;box-shadow:0 0 0 3px var(--card)}
+.galw{margin:0 0 18px}
+.galh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}.galh span{color:var(--soft);font-size:14px;white-space:nowrap}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:22px;background:var(--blush);scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal img{flex:0 0 100%;width:100%;aspect-ratio:16/9;object-fit:contain;scroll-snap-align:center;display:block}
+.galb{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.gbtn{all:unset;cursor:pointer;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--blush);color:var(--rose);font-size:28px;line-height:1}
+.gbtn:hover{background:var(--rose);color:#fff}
+.galb .btn{margin-left:auto}
+.lk:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+@media(max-width:960px){.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.study,.tools{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a class="sig" href="#inicio">Diana K</a>
+  <div class="links" id="links"><a href="#sobre-mi">Sobre mí</a><a href="#experiencia">Experiencia</a><a href="#trabajo">Mi trabajo</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a></div>
+  <a class="btn sm" href="#trabajo">Ver mi trabajo</a>
+</div></nav>
+
+<header class="band" id="inicio"><div class="wrap hero">
+  <div>
+    <p class="hello">Hola, soy</p>
+    <h1>Diana K</h1>
+    <p class="role">Comunicadora social con corazón <em>estratégico y digital</em>.</p>
+    <p class="lead">Diseño estrategias de comunicación, creo contenidos y gestiono campañas que fortalecen el posicionamiento de las marcas y su relación con las personas.</p>
+    <div class="cta"><a class="btn" href="#trabajo">Ver lo que he hecho</a><a class="btn ghost" href="#experiencia">Conocer mi experiencia</a></div>
+    <div class="tags"><span class="tag">Bogotá, Colombia</span><span class="tag">Comunicación corporativa</span><span class="tag">Marketing digital</span></div>
+  </div>
+  <div class="arch">
+    <svg viewBox="0 0 470 560" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--rose2)"/><stop offset=".6" stop-color="var(--peach)"/><stop offset="1" stop-color="var(--lav)"/></linearGradient>
+        <clipPath id="ac"><path d="M75 540V230a160 160 0 0 1 320 0v310z"/></clipPath>
+        <g id="fl"><g fill="var(--rose)"><ellipse cy="-11" rx="6.5" ry="11"/><ellipse cy="-11" rx="6.5" ry="11" transform="rotate(72)"/><ellipse cy="-11" rx="6.5" ry="11" transform="rotate(144)"/><ellipse cy="-11" rx="6.5" ry="11" transform="rotate(216)"/><ellipse cy="-11" rx="6.5" ry="11" transform="rotate(288)"/></g><circle r="5" fill="var(--gold)"/></g>
+        <g id="fl2"><g fill="#f6b6c8"><ellipse cy="-8" rx="5" ry="8"/><ellipse cy="-8" rx="5" ry="8" transform="rotate(72)"/><ellipse cy="-8" rx="5" ry="8" transform="rotate(144)"/><ellipse cy="-8" rx="5" ry="8" transform="rotate(216)"/><ellipse cy="-8" rx="5" ry="8" transform="rotate(288)"/></g><circle r="3.5" fill="#fff"/></g>
+        <path id="lf" d="M0 0C10-14 28-16 38-10 28 0 12 4 0 0z" fill="#a8c3a0"/>
+      </defs>
+      <path d="M60 548V226a175 175 0 0 1 350 0v322z" fill="none" stroke="var(--gold)" stroke-width="1.5" opacity=".7"/>
+      <path d="M75 540V230a160 160 0 0 1 320 0v310z" fill="url(#sky)"/>
+      <g clip-path="url(#ac)">
+        <circle cx="330" cy="150" r="46" fill="#fff" opacity=".5"/>
+        <path d="M150 300c-6-90 40-150 92-150s100 50 94 140c-4 60 14 110 30 150H118c18-40 36-80 32-140z" fill="#6b4352"/>
+        <path d="M205 330h60v70h-60z" fill="#f3c9b3"/>
+        <ellipse cx="235" cy="270" rx="58" ry="70" fill="#f8d6c4"/>
+        <path d="M176 258c4-60 40-84 66-84 40 0 66 34 64 84-18-34-44-46-70-44-24 2-44 18-60 44z" fill="#6b4352"/>
+        <path d="M216 300q19 14 38 0" stroke="#c96a82" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="210" cy="280" rx="11" ry="7" fill="#f3a9b8" opacity=".55"/><ellipse cx="262" cy="280" rx="11" ry="7" fill="#f3a9b8" opacity=".55"/>
+        <path d="M205 262q8-6 16 0M250 262q8-6 16 0" stroke="#6b4352" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M120 560c6-80 50-150 115-150s110 70 115 150z" fill="var(--rose)"/>
+        <path d="M205 410l30 40 30-40" fill="#fff" opacity=".9"/>
+        <circle cx="235" cy="430" r="5" fill="var(--gold)"/>
+      </g>
+      <g transform="translate(70 470)"><use href="#lf" transform="rotate(-150)"/><use href="#lf" transform="rotate(-100) scale(.8)"/><use href="#fl" transform="translate(4 -6) scale(1.5)"/><use href="#fl2" transform="translate(38 30)"/><use href="#fl2" transform="translate(-24 24) scale(.8)"/></g>
+      <g transform="translate(398 300)"><use href="#lf" transform="rotate(-30)"/><use href="#lf" transform="rotate(20) scale(.8)"/><use href="#fl" transform="scale(1.2)"/><use href="#fl2" transform="translate(-14 34) scale(.9)"/></g>
+      <g transform="translate(140 70)"><use href="#lf" transform="rotate(200) scale(.8)"/><use href="#fl2" transform="scale(1.1)"/></g>
+      <g fill="var(--gold)"><path d="M420 120l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/><path d="M40 300l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><path d="M300 30l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></g>
+    </svg>
+    
+    <div class="float f1"><span class="dot" style="background:var(--peach)">✿</span><div><b>10 años</b>en comunicación</div></div>
+    <div class="float f2"><span class="dot" style="background:var(--lav)">✦</span><div><b>Meta y LinkedIn</b>campañas de pauta</div></div>
+  </div>
+</div></header>
+
+<section class="band" style="padding-top:0"><div class="wrap stats" id="stats"></div></section>
+
+<section class="band" id="sobre-mi"><div class="wrap">
+  <div class="center reveal"><p class="kick">Sobre mí</p><h2>Comunicar con <em>propósito</em></h2></div>
+  <div class="about reveal">
+    <div class="quote"><p>Me gusta transformar los objetivos de una marca en contenidos, campañas y acciones digitales que conecten con su público y den resultados.</p><span class="by">Diana K</span></div>
+    <div>
+      <p class="lead" style="margin-top:0">Tengo experiencia en comunicación corporativa, interna y externa, marketing digital y posicionamiento de marca. He participado en lanzamientos de marca, comunicación interna, creación de contenidos, gestión de comunidades y networking.</p>
+      <p class="lead">Uno la creatividad con la comunicación estratégica y el análisis de indicadores para que cada acción tenga un objetivo claro.</p>
+      <div class="skills" id="skills"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="band soft" id="experiencia"><div class="wrap">
+  <div class="center"><p class="kick">Experiencia</p><h2>Mi camino <em>profesional</em></h2></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="job"></div>
+</div></section>
+
+<section class="band" id="trabajo"><div class="wrap">
+  <div class="center"><p class="kick">Mi trabajo</p><h2>Lo que <em>he hecho</em></h2><p class="lead">Toca cada tarjeta para ver en qué consistió, dónde lo hice y con qué herramientas.</p></div>
+  <div class="bar" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band soft" id="formacion"><div class="wrap">
+  <div class="center"><p class="kick">Formación</p><h2>Siempre <em>aprendiendo</em></h2></div>
+  <div class="study reveal">
+    <div class="box"><h3>Formación académica</h3><ul class="tl" id="edu"></ul></div>
+    <div class="box"><h3>Formación complementaria</h3><ul class="tl" id="courses"></ul></div>
+  </div>
+  <div class="center" style="margin-top:72px"><p class="kick">Herramientas</p><h2>Lo que <em>domino</em></h2></div>
+  <div class="tools" id="tools"></div>
+</div></section>
+
+<section class="band" id="contacto"><div class="wrap env one reveal">
+  <p class="kick">Contacto</p>
+  <h2>Gracias por <em>conocer mi trabajo</em></h2>
+  <p class="lead">Si quieres conversar sobre algún proyecto o conocer más detalles, aquí están mis datos.</p>
+  <div class="info">
+    <div><span>Correo</span><a href="mailto:dianak.ramirezpaez@gmail.com">dianak.ramirezpaez@gmail.com</a><button class="copy" data-c="dianak.ramirezpaez@gmail.com">Copiar</button></div>
+    <div><span>Celular</span><a href="tel:+573133459369">313 345 9369</a><button class="copy" data-c="3133459369">Copiar</button></div>
+    <div><span>Ciudad</span><b>Bogotá, Colombia</b></div>
+  </div>
+</div></section>
+
+<footer><span class="sig">Diana K</span>Diana Katherine Ramírez Páez · Comunicadora Social</footer>
+
+<dialog id="dlg"><div id="dlgBody"></div></dialog>
+
+<script>
+{
+const stats=[{v:10,p:"",s:"",t:"años de experiencia"},{v:3,p:"",s:"",t:"empresas"},{v:3,p:"",s:"",t:"títulos en comunicación"},{v:8,p:"",s:"",t:"cursos complementarios"}];
+const skills=["Comunicación estratégica","Comunicación interna y externa","Social media","Pauta digital","Generación de leads","Copywriting","Storytelling","Posicionamiento de marca"];
+const SOC=[{n:"LinkedIn",u:"https://www.linkedin.com/company/qmasoficial/"},{n:"Instagram",u:"https://www.instagram.com/qmasoficial/"},{n:"Facebook",u:"https://www.facebook.com/qmasoficial"},{n:"TikTok",u:"https://www.tiktok.com/@qmasoficial"},{n:"YouTube",u:"https://www.youtube.com/channel/UCB7HTEHXraL8K4W3pElAYZQ"}];
+const jobs=[
+ {y:"2018 – 2026",r:"Especialista de comunicaciones y marketing",c:"QUE +",d:"Junio 2018 – agosto 2026",l:["Diseño y ejecución de estrategias de comunicación y contenidos para canales digitales","Gestión integral de redes sociales: planeación, creación, publicación y seguimiento","Estrategias de lanzamiento y posicionamiento de marca","Campañas de pauta en Facebook, Instagram y LinkedIn para generar leads","Análisis de indicadores digitales para optimizar resultados","Contenidos y piezas de comunicación interna","Estrategias de marca personal en LinkedIn para CEOs","Networking en eventos y en LinkedIn","Contenidos para el blog de tuTrAmiGo","Piezas gráficas para la presencia digital de la marca"],links:SOC},
+ {y:"2017 – 2018",r:"Community Manager & Copy",c:"Mercadeo Digital Colombia",d:"Mayo 2017 – enero 2018",l:["Planeación y gestión de contenidos para redes sociales","Estrategias de comunicación digital y seguimiento de indicadores","Redacción de contenidos para blog","Campañas de pauta en Facebook, LinkedIn e Instagram para generar leads","Diseño de piezas gráficas"]},
+ {y:"2014 – 2015",r:"Community Manager & Copy",c:"Neurona I+D S.A.S.",d:"Febrero 2014 – marzo 2015",l:["Administración y gestión de redes sociales","Estrategias de contenido para canales digitales","Diseño de piezas gráficas","Seguimiento y análisis de indicadores","Campañas de pauta orientadas a clientes potenciales"]}];
+const ic={
+ estrella:'<path d="M35 10l7 16 17 2-13 11 4 17-15-9-15 9 4-17-13-11 17-2z" fill="currentColor"/>',
+ corazon:'<path d="M35 58S12 44 12 27a12 12 0 0 1 23-5 12 12 0 0 1 23 5c0 17-23 31-23 31z" fill="currentColor"/>',
+ imán:'<path d="M18 14h12v22a5 5 0 0 0 10 0V14h12v22a17 17 0 0 1-34 0z" fill="currentColor"/><path d="M18 14h12v8H18zM40 14h12v8H40z" fill="#fff" opacity=".6"/>',
+ casa:'<path d="M12 34L35 14l23 20v22H12z" fill="currentColor"/><rect x="29" y="40" width="12" height="16" fill="#fff"/>',
+ pluma:'<path d="M54 14C34 16 20 30 18 52l6-2c2-14 10-24 22-30-8 8-14 16-18 26 14-4 26-16 26-32z" fill="currentColor"/>',
+ equipo:'<circle cx="24" cy="26" r="8" fill="currentColor"/><circle cx="46" cy="26" r="8" fill="currentColor" opacity=".6"/><path d="M10 54c2-12 8-18 14-18s12 6 14 18zM32 54c2-12 8-18 14-18s12 6 14 18z" fill="currentColor"/>',
+ grafica:'<rect x="14" y="38" width="10" height="18" rx="3" fill="currentColor" opacity=".55"/><rect x="30" y="28" width="10" height="28" rx="3" fill="currentColor" opacity=".8"/><rect x="46" y="16" width="10" height="40" rx="3" fill="currentColor"/>',
+ pincel:'<circle cx="24" cy="46" r="10" fill="currentColor" opacity=".6"/><path d="M30 40L52 14l4 4-26 22z" fill="currentColor"/>'};
+const tints=["var(--blush)","var(--peach)","var(--lav)"];
+const cases=[
+ {cat:"Marca",ic:"estrella",t:"Lanzamiento y posicionamiento de marca",w:"QUE + · Manual de identidad de marca 2026",ch:"Lanzamiento de la marca QUE+ y construcción de su identidad, bajo el lema «Conectamos tus metas con nuestras soluciones».",st:"Estrategia de lanzamiento y posicionamiento en canales digitales, y el manual de identidad de marca: logo, colores, tipografía, usos correctos, papelería, firmas digitales, carnet, fondo de Teams y material POP.",h:["Identidad de marca","Estrategia de marca","Social media","Contenidos"],sw:[["Naranja","#ff9900"],["Cyan","#00c2b2"],["Gris","#606060"]],gal:{n:20,dir:"manual/p-",pdf:"manual/manual-de-marca-que-2026.pdf",t:"Manual de identidad de marca QUE+ 2026"}},
+ {cat:"Pauta digital",ic:"imán",t:"Campañas para generar leads",w:"QUE + · Mercadeo Digital Colombia · Neurona I+D",ch:"Campañas de pauta digital orientadas a captar clientes potenciales.",st:"Planeación, segmentación, implementación y seguimiento de campañas, con ajustes según los indicadores.",h:["Google Ads","Facebook","Instagram","LinkedIn","Meta Ads"]},
+ {cat:"Redes sociales",ic:"corazon",t:"Gestión integral de redes",w:"QUE + · @qmasoficial",ch:"Presencia de la marca en cinco redes: LinkedIn, Instagram, Facebook, TikTok y YouTube.",st:"Parrillas editoriales, creación y publicación de contenidos adaptados a cada red, gestión de comunidad y análisis de resultados.",h:["LinkedIn","Instagram","Facebook","TikTok","YouTube","Community management"],links:SOC},
+ {cat:"Comunicación interna",ic:"casa",t:"Comunicación para los equipos",w:"QUE +",ch:"Contenidos y piezas para informar y conectar a los públicos internos.",st:"Creación de mensajes y piezas internas que apoyan la divulgación de información y el relacionamiento.",h:["Comunicación interna","Piezas gráficas","Storytelling"]},
+ {cat:"Contenidos",ic:"pluma",t:"Blog de tuTrAmiGo",w:"QUE + · tuTrAmiGo",ch:"Artículos para el blog de tuTrAmiGo, plataforma de trámites judiciales y notariales en Colombia.",st:"Selección de temas útiles para los usuarios, redacción clara de temas legales y notariales, y enfoque en posicionamiento web.",h:["Copywriting","Redacción web","SEO","Storytelling"],links:[{n:"Ver el blog",u:"https://www.tutramigo.com/blog"}]},
+ {cat:"Marca",ic:"equipo",t:"Marca personal de CEOs",w:"QUE +",ch:"Lanzamiento y posicionamiento de la marca personal de líderes de la empresa en LinkedIn.",st:"Estrategia de marca personal, perfil optimizado, contenidos con su voz y networking para ampliar su red y la visibilidad de la empresa.",h:["Marca personal","LinkedIn","Networking","Storytelling"],links:[{n:"Nubia Ojeda",u:"https://www.linkedin.com/in/nubia-ojeda-6b69a822/"},{n:"Diana M. Ojeda Rojas",u:"https://www.linkedin.com/in/diana-m-ojeda-rojas-24a744141/"}]},
+ {cat:"Redes sociales",ic:"grafica",t:"Análisis de indicadores",w:"Las tres empresas",ch:"Medición del desempeño digital para tomar mejores decisiones.",st:"Seguimiento de métricas de redes y campañas para encontrar oportunidades de mejora.",h:["Analítica digital","Reportes","Optimización"]},
+ {cat:"Contenidos",ic:"pincel",t:"Piezas gráficas",w:"Las tres empresas",ch:"Diseño de piezas para redes, campañas y comunicación interna.",st:"Creación de piezas alineadas con la identidad de cada marca y su canal.",h:["Diseño gráfico","Identidad de marca"]}];
+const edu=[{t:"Profesional en Comunicación Social",d:"Fundación Universitaria Panamericana · 2016 – 2018"},{t:"Tecnóloga en Gestión Comunicativa y Relaciones Públicas",d:"Fundación Universitaria Panamericana · 2015 – 2016"},{t:"Técnica Profesional en Procesos Comunicativos Empresariales",d:"Fundación Universitaria Panamericana · 2013 – 2015"}];
+const courses=[{t:"Analítica e Inteligencia del Marketing Digital",d:"Fundación Universitaria del Área Andina · 2025"},{t:"Estrategias de Ventas B2B y Ventas B2C",d:"Platzi · 2025"},{t:"Marketing Digital Aplicando la IA",d:"Politécnico Grancolombiano · 2024"},{t:"Marketing Digital",d:"Cymetria · 2024"},{t:"Metodología Ágil SCRUM y Contenidos Creativos en Redes",d:"Universidad de los Andes, BIQ · 2024"},{t:"La conquista 4.0: negocios en el mundo digital",d:"Universidad de los Andes, BIQ · 2023"}];
+const tools=[
+ {t:"Comunicación",l:["Corporativa","Interna","Externa","Estratégica","Gestión de contenidos","Relaciones públicas"]},
+ {t:"Digital",l:["Social media","Marketing digital","Comunidades","Copywriting","Storytelling","Leads"]},
+ {t:"Pauta digital",l:["Google Ads","Facebook","Instagram","LinkedIn","Meta"]},
+ {t:"Gestión",l:["Indicadores","Planeación estratégica","Metodologías ágiles","SCRUM"]}];
+
+const $=id=>document.getElementById(id);
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const lk=a=>a.map(l=>`<a class="lk" href="${l.u}" target="_blank" rel="noopener">${l.n} ↗</a>`).join("");
+const pad=n=>String(n).padStart(2,"0");
+const galHTML=g=>`<div class="galw"><div class="galh"><b>${g.t}</b><span id="gc">1 / ${g.n}</span></div><div class="gal" id="gal" tabindex="0">${Array.from({length:g.n},(_,k)=>`<img src="${g.dir}${pad(k+1)}.jpg" alt="Página ${k+1} del manual" loading="lazy">`).join("")}</div><div class="galb"><button class="gbtn" id="gp" aria-label="Página anterior">‹</button><button class="gbtn" id="gn" aria-label="Página siguiente">›</button><a class="btn sm" id="pdf" href="${g.pdf}" target="_blank" rel="noopener" hidden>Ver PDF completo</a></div></div>`;
+const galInit=g=>{const el=$("gal"),go=d=>{const w=el.clientWidth,i=Math.round(el.scrollLeft/w)+d;el.scrollTo({left:Math.max(0,Math.min(g.n-1,i))*w,behavior:reduce?"auto":"smooth"})};
+ $("gp").onclick=()=>go(-1);$("gn").onclick=()=>go(1);
+ el.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(1)}if(e.key==="ArrowLeft"){e.preventDefault();go(-1)}});
+ el.addEventListener("scroll",()=>{$("gc").textContent=(Math.round(el.scrollLeft/el.clientWidth)+1)+" / "+g.n},{passive:true});
+ fetch(g.pdf,{method:"HEAD"}).then(r=>{if(r.ok&&$("pdf"))$("pdf").hidden=false}).catch(()=>{})};
+const svg=k=>`<svg viewBox="0 0 70 70" style="color:var(--rose)">${ic[k]}</svg>`;
+
+$("stats").innerHTML=stats.map((s,i)=>`<div class="stat"><b data-i="${i}">${s.p}0${s.s}</b><span>${s.t}</span></div>`).join("");
+$("skills").innerHTML=skills.map(s=>`<span class="skill">${s}</span>`).join("");
+const tl=a=>a.map(e=>`<li><i></i><b>${e.t}</b><span>${e.d}</span></li>`).join("");
+$("edu").innerHTML=tl(edu);$("courses").innerHTML=tl(courses);
+$("tools").innerHTML=tools.map(g=>`<div class="tool reveal"><h3>${g.t}</h3><div class="skills">${g.l.map(x=>`<span class="skill">${x}</span>`).join("")}</div></div>`).join("");
+
+const count=el=>{const s=stats[+el.dataset.i];if(reduce){el.textContent=s.p+s.v+s.s;return}const t0=performance.now();
+ const step=t=>{const k=Math.min(1,(t-t0)/1500),e=1-(1-k)**3;el.textContent=s.p+Math.round(s.v*e)+s.s;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add("in");e.target.querySelectorAll("b[data-i]").forEach(count);io.unobserve(e.target)}),{threshold:.15});
+io.observe($("stats"));document.querySelectorAll(".reveal").forEach(r=>io.observe(r));
+
+$("tabs").innerHTML=jobs.map((j,i)=>`<button class="tab" role="tab" aria-selected="${i===0}" data-i="${i}">${j.c}</button>`).join("");
+const showJob=i=>{const j=jobs[i];document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.i==i));
+ $("job").innerHTML=`<div class="job fade"><div class="badge">${j.c[0]}</div><div><h3>${j.r}</h3><p class="co">${j.c} · ${j.d}</p><ul>${j.l.map(x=>`<li>${x}</li>`).join("")}</ul>${j.links?`<p class="co" style="margin:22px 0 10px">Redes que gestioné</p><div class="lks">${lk(j.links)}</div>`:""}</div></div>`};
+$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)showJob(+b.dataset.i)});
+$("tabs").addEventListener("keydown",e=>{const bs=[...document.querySelectorAll(".tab")],i=bs.indexOf(document.activeElement),n=e.key==="ArrowRight"?1:e.key==="ArrowLeft"?-1:0;if(i<0||!n)return;e.preventDefault();const k=(i+n+bs.length)%bs.length;bs[k].focus();showJob(k)});
+showJob(0);
+
+const cats=["Todos",...new Set(cases.map(c=>c.cat))];let cur="Todos";
+const renderCases=()=>{$("filters").innerHTML=cats.map(c=>`<button class="chip" aria-pressed="${c===cur}" data-c="${c}">${c}</button>`).join("");
+ $("grid").innerHTML=cases.map((c,i)=>({c,i})).filter(x=>cur==="Todos"||x.c.cat===cur).map(({c,i})=>`<button class="case fade" data-i="${i}"><div class="top" style="background:${tints[i%3]}">${svg(c.ic)}</div><div class="in"><small>${c.cat}</small><h3>${c.t}</h3><p>${c.ch}</p><span class="res">${c.gal?"Ver manual de marca":c.links?"Ver detalle y enlaces":"Ver detalle"}</span></div></button>`).join("")};
+$("filters").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cur=b.dataset.c;renderCases()});
+$("grid").addEventListener("click",e=>{const b=e.target.closest(".case");if(!b)return;const i=+b.dataset.i,c=cases[i];
+ $("dlgBody").innerHTML=`<div class="dtop" style="background:${tints[i%3]}">${svg(c.ic)}<button class="x" id="close" aria-label="Cerrar">×</button></div><div class="dlg"><p class="kick">${c.cat}</p><h3>${c.t}</h3>${c.gal?galHTML(c.gal):""}<div class="step"><span>De qué se trató</span>${c.ch}</div><div class="step" style="background:var(--peach)"><span>Lo que hice</span>${c.st}</div><div class="step" style="background:var(--lav)"><span>Dónde</span>${c.w}<div class="detail">${c.h.map(x=>`<span class="skill">${x}</span>`).join("")}</div></div>${c.sw?`<div class="step"><span>Colores de la marca</span><div class="sws">${c.sw.map(([n,h])=>`<span class="sw"><i style="background:${h}"></i>${n} ${h}</span>`).join("")}</div></div>`:""}${c.links?`<div class="step" style="background:var(--rose2)"><span>Míralo en vivo</span><div class="lks">${lk(c.links)}</div></div>`:""}</div>`;
+ $("dlg").classList.toggle("wide",!!c.gal);
+ $("dlg").showModal();$("close").onclick=()=>$("dlg").close();if(c.gal)galInit(c.gal)});
+$("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
+renderCases();
+
+const links=[...document.querySelectorAll("#links a")];
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-40% 0px -55% 0px"});
+["sobre-mi","experiencia","trabajo","formacion","contacto"].forEach(id=>nio.observe($(id)));
+
+document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(b.dataset.c);b.textContent="¡Copiado!"}catch(_){b.textContent="Selecciona y copia"}setTimeout(()=>b.textContent="Copiar",1800)}));
+}
+</script>
+</body>
+</html>
